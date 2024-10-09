@@ -27,7 +27,7 @@ public class CategoriaController {
 
     @GetMapping("/getCategoria/{id}")
     @Operation(summary = "Busca a categoria usando o código", method = "GET")
-    public ResponseEntity<Object> getCategoriaModelBy(@PathVariable(value = "id") Long idCategoria) {
+    public ResponseEntity<Object> getCategoriaById(@PathVariable(value = "id") Long idCategoria) {
         Optional<CategoriaModel> categoriaModel = categoriaRepository.findById(idCategoria);
 
         if(categoriaModel.isEmpty()) { throw new ExceptionNotFound(); }
@@ -59,7 +59,7 @@ public class CategoriaController {
 
     @DeleteMapping("/deleteCategoria/{id}")
     @Operation(summary = "Deleta o cadastro da categoria", method = "DELETE")
-    public ResponseEntity<Object> updateCategoria(@PathVariable(value = "id") Long idCategoria) {
+    public ResponseEntity<Object> deleteCategoria(@PathVariable(value = "id") Long idCategoria) {
         Optional<CategoriaModel> categoriaModel = categoriaRepository.findById(idCategoria);
 
         if(categoriaModel.isEmpty()) { throw new ExceptionNotFound(); }

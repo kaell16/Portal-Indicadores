@@ -27,7 +27,7 @@ public class CampusController {
 
     @GetMapping("/getCampus/{id}")
     @Operation(summary = "Busca o campus usando o código", method = "GET")
-    public ResponseEntity<Object> getCampusModelBy(@PathVariable(value = "id") Long idCampus) {
+    public ResponseEntity<Object> getCampusById(@PathVariable(value = "id") Long idCampus) {
         Optional<CampusModel> campusModel = campusRepository.findById(idCampus);
 
         if(campusModel.isEmpty()) { throw new ExceptionNotFound(); }
@@ -59,7 +59,7 @@ public class CampusController {
 
     @DeleteMapping("/deleteCampus/{id}")
     @Operation(summary = "Deleta o cadastro do campus", method = "DELETE")
-    public ResponseEntity<Object> updateCampus(@PathVariable(value = "id") Long idCampus) {
+    public ResponseEntity<Object> deleteCampus(@PathVariable(value = "id") Long idCampus) {
         Optional<CampusModel> campusModel = campusRepository.findById(idCampus);
 
         if(campusModel.isEmpty()) { throw new ExceptionNotFound(); }
