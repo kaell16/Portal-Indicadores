@@ -40,7 +40,7 @@ public class ExcelService {
                     case PAPEL:
                         // Implementar
                         break;
-                    case RESIDUOS:
+                    case RESIDUO:
                         // Implementar
                         break;
                     default:

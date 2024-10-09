@@ -9,7 +9,7 @@ public enum Indicadores {
     CARBONO(2, "Carbono"),
     ENERGIA(3, "Energia"),
     PAPEL(3, "Papel"),
-    RESIDUOS(4, "Residuo");
+    RESIDUO(4, "Residuo");
 
     private final int codigo;
     private final String descricao;
