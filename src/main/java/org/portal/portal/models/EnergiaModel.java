@@ -9,12 +9,12 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
-@Entity(name = "copo")
-@Table(name = "copo")
+@Entity(name = "energia")
+@Table(name = "energia")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "idIndicador")
-public class CopoModel {
+public class EnergiaModel {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,7 +27,7 @@ public class CopoModel {
 
     private String descricao;
 
-    private double quantidade;
+    private double consumo;
 
     private String medida;
 

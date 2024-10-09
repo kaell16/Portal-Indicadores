@@ -5,16 +5,15 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
-@Entity(name = "copo")
-@Table(name = "copo")
+@Entity(name = "residuo")
+@Table(name = "residuo")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "idIndicador")
-public class CopoModel {
+public class ResiduoModel {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,11 +26,12 @@ public class CopoModel {
 
     private String descricao;
 
+    @Column(name = "subdescricao")
+    private String subDescricao;
+
     private double quantidade;
 
     private String medida;
-
-    private BigDecimal valor;
 
     @Column(name = "datainicial")
     private LocalDate dataInicial;
