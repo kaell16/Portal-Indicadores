@@ -82,7 +82,7 @@ public class CopoService {
                     throw new ExceptionDataEmpty();
                 }
 
-                CopoModel copoValidacao = copoRepository.findIndicadorCopoByChave(copo.getDataInicial(), copo.getDataFinal());
+                CopoModel copoValidacao = copoRepository.findIndicadorCopoByDate(copo.getDataInicial(), copo.getDataFinal());
 
                 //Validar se o dado ja existe, caso nao exista inserir na lista
                 if (copoValidacao == null){

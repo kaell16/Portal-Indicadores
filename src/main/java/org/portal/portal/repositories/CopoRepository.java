@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 
 @Repository
-public interface CopoRepository extends JpaRepository<CopoModel, Long>{
+public interface CopoRepository extends JpaRepository<CopoModel, Long> {
 
-    @Query(value = CopoSql.get_copo_by_chave, nativeQuery = true)
-    CopoModel findIndicadorCopoByChave(@Param("dt_inicial") LocalDate dataInicial, @Param("dt_final") LocalDate dataFinal);
+    @Query(value = CopoSql.get_copo_by_date, nativeQuery = true)
+    CopoModel findIndicadorCopoByDate(@Param("dt_inicial") LocalDate dataInicial, @Param("dt_final") LocalDate dataFinal);
 }

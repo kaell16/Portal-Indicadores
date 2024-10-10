@@ -1,20 +1,21 @@
 package org.portal.portal.groovy
 
-class CopoSql {
+class CarbonoSql {
 
-    public static final String get_copo_by_date = """
+    public static final String get_carbono_by_date = """
         SELECT 
             C.IDINDICADOR,
             C.IDCATEGORIA,
             C.DESCRICAO,
-            C.QUANTIDADE,
+            C.CMINICIAL,
+            C.CMFINAL,
+            C.PESO,
             C.MEDIDA,
-            C.VALOR,
             C.DATAINICIAL,
             C.DATAFINAL,
             C.DATAATUALIZACAO
         FROM
-            DBA.COPO C
+            DBA.CARBONO C
         WHERE 
             C.DATAINICIAL = :dt_inicial
             AND C.DATAFINAL = :dt_final
