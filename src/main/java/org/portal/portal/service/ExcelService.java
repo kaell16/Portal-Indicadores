@@ -2,6 +2,7 @@ package org.portal.portal.service;
 
 import org.apache.poi.ss.usermodel.*;
 import org.portal.portal.exceptions.ExceptionExcelEmpty;
+import org.portal.portal.exceptions.ExceptionRecordsNotPersisted;
 import org.portal.portal.factory.IndicadoresFactory;
 import org.portal.portal.interfaces.IndicadoresProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class ExcelService {
 
                 if (indicadoresProcessor != null) { list = indicadoresProcessor.lerExcel(sheet); } // Le os dados do excel
 
-                if (list.isEmpty()) { throw new ExceptionExcelEmpty(); }
+                if (list.isEmpty()) { throw new ExceptionRecordsNotPersisted(); }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

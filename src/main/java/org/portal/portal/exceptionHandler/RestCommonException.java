@@ -1,9 +1,6 @@
 package org.portal.portal.exceptionHandler;
 
-import org.portal.portal.exceptions.ExceptionDataEmpty;
-import org.portal.portal.exceptions.ExceptionExcelEmpty;
-import org.portal.portal.exceptions.ExceptionIndicadorNotFound;
-import org.portal.portal.exceptions.ExceptionNotFound;
+import org.portal.portal.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -35,6 +32,12 @@ public class RestCommonException extends ResponseEntityExceptionHandler {
     private ResponseEntity<RestErrorMessage> dataEmptyHandler(ExceptionDataEmpty exception) {
         RestErrorMessage response = new RestErrorMessage(HttpStatus.NOT_ACCEPTABLE, exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
+    }
+
+    @ExceptionHandler(ExceptionRecordsNotPersisted.class)
+    private ResponseEntity<RestErrorMessage> recordsNotPersistedHandler(ExceptionRecordsNotPersisted exception) {
+        RestErrorMessage response = new RestErrorMessage(HttpStatus.EXPECTATION_FAILED, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(response);
     }
 
 }

@@ -98,6 +98,7 @@ public class CopoService implements IndicadoresProcessor {
             copoRepository.saveAll(copoList);
         }
 
-        return Collections.singletonList(copoList);
+        //return Collections.singletonList(copoList);
+        return copoList.isEmpty() ? new ArrayList<>() : Collections.singletonList(copoList);
     }
 }
