@@ -31,7 +31,7 @@ public class ExcelService {
                 IndicadoresProcessor indicadoresProcessor = indicadoresFactory.getProcessor(indicador);
 
                 if (indicadoresProcessor != null) {
-                    list = indicadoresProcessor.lerExcel(sheet);
+                    list = indicadoresProcessor.lerExcel(sheet); // Le os dados do excel
                 }
 
                 if (list.isEmpty()) { throw new ExceptionExcelEmpty(); }

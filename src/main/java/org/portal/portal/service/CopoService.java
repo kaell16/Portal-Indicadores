@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.portal.portal.exceptions.ExceptionDataEmpty;
+import org.portal.portal.interfaces.IndicadoresProcessor;
 import org.portal.portal.models.CopoModel;
 import org.portal.portal.repositories.CopoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,11 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
-public class CopoService {
+public class CopoService implements IndicadoresProcessor {
 
     @Autowired
     private ValidacaoService validacaoService;
@@ -23,7 +25,7 @@ public class CopoService {
     @Autowired
     private CopoRepository copoRepository;
 
-    public List<CopoModel> lerExcel(Sheet sheet){
+    public List<Object> lerExcel(Sheet sheet) {
 
         List<CopoModel> copoList = new ArrayList<>();
         String dadoColumn;
@@ -93,9 +95,9 @@ public class CopoService {
         }
 
         if (!copoList.isEmpty()) {
-            return copoRepository.saveAll(copoList);
+            copoRepository.saveAll(copoList);
         }
 
-        return copoList;
+        return Collections.singletonList(copoList);
     }
 }
