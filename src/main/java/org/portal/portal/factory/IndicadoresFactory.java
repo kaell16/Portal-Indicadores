@@ -3,7 +3,6 @@ package org.portal.portal.factory;
 import jakarta.validation.constraints.NotNull;
 import org.portal.portal.enums.Indicadores;
 import org.portal.portal.interfaces.IndicadoresProcessor;
-import org.portal.portal.service.CopoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;

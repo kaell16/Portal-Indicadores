@@ -30,9 +30,7 @@ public class ExcelService {
                 // Factory para retornar a classe do indicador e evitar injetar classes sem necessidade
                 IndicadoresProcessor indicadoresProcessor = indicadoresFactory.getProcessor(indicador);
 
-                if (indicadoresProcessor != null) {
-                    list = indicadoresProcessor.lerExcel(sheet); // Le os dados do excel
-                }
+                if (indicadoresProcessor != null) { list = indicadoresProcessor.lerExcel(sheet); } // Le os dados do excel
 
                 if (list.isEmpty()) { throw new ExceptionExcelEmpty(); }
             } catch (IOException e) {
