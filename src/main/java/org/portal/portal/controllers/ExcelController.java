@@ -1,5 +1,6 @@
 package org.portal.portal.controllers;
 
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.swagger.v3.oas.annotations.Operation;
 import org.portal.portal.service.ExcelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,5 @@ public class ExcelController {
 
     @PostMapping(value = "/extrair", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "Extrai os dados do excel para inserir no banco", method = "POST")
-    public ResponseEntity<List<Object>> extract(@RequestParam MultipartFile file, String indicador) { return ResponseEntity.ok(excelService.extrair(file, indicador)); }
+    public ResponseEntity<List<Object>> extract(@RequestParam MultipartFile file, @NotNull String indicador) { return ResponseEntity.ok(excelService.extrair(file, indicador)); }
 }

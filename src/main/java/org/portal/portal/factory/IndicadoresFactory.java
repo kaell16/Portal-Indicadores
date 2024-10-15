@@ -3,6 +3,7 @@ package org.portal.portal.factory;
 import jakarta.validation.constraints.NotNull;
 import org.portal.portal.enums.Indicadores;
 import org.portal.portal.interfaces.IndicadoresProcessor;
+import org.portal.portal.service.CarbonoService;
 import org.portal.portal.service.CopoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -23,8 +24,7 @@ public class IndicadoresFactory {
             case COPO:
                 return applicationContext.getBean(CopoService.class, IndicadoresProcessor.class);
             case CARBONO:
-                // Retornar implementação de CarbonoProcessor
-                break;
+                return applicationContext.getBean(CarbonoService.class, IndicadoresProcessor.class);
             case ENERGIA:
                 // Retornar implementação de EnergiaProcessor
                 break;

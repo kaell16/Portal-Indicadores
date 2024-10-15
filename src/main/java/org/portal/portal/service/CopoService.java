@@ -82,7 +82,7 @@ public class CopoService implements IndicadoresProcessor {
                 }
 
                 if (copo.getDataInicial() == null || copo.getDataFinal() == null) {
-                    throw new ExceptionDataEmpty();
+                    throw new ExceptionDataEmpty("Verifique a integridade dos dados na linha " + row.getRowNum());
                 }
 
                 CopoModel copoValidacao = copoRepository.findIndicadorCopoByDate(copo.getDataInicial(), copo.getDataFinal());
