@@ -40,7 +40,7 @@ public class PapelService implements IndicadoresProcessor {
                 Cell idCategoria = row.getCell(0);
                 if (idCategoria != null) {
                     dadoColumn = validacaoService.validarColuna(idCategoria);
-                    if ("".equals(dadoColumn)){ throw new IllegalArgumentException("Categoria do indicador não informada"); }
+                    if ("".equals(dadoColumn)){ throw new IllegalArgumentException("Categoria do indicador não informada na linha " + row.getRowNum()); }
                     papel.setIdCategoria(Double.valueOf(dadoColumn).longValue());
                 }
 
@@ -52,7 +52,7 @@ public class PapelService implements IndicadoresProcessor {
                 Cell quantidade = row.getCell(2);
                 if (quantidade != null) {
                     dadoColumn = validacaoService.validarColuna(quantidade);
-                    if ("".equals(dadoColumn)){ throw new IllegalArgumentException("Quantidade não informada"); }
+                    if ("".equals(dadoColumn)){ throw new IllegalArgumentException("Quantidade não informada na linha " + row.getRowNum()); }
                     papel.setQuantidade(Double.parseDouble(dadoColumn));
                 }
 

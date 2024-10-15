@@ -40,7 +40,7 @@ public class EnergiaService implements IndicadoresProcessor {
                 Cell idCategoria = row.getCell(0);
                 if (idCategoria != null) {
                     dadoColumn = validacaoService.validarColuna(idCategoria);
-                    if ("".equals(dadoColumn)){ throw new IllegalArgumentException("Categoria do indicador não informada"); }
+                    if ("".equals(dadoColumn)){ throw new IllegalArgumentException("Categoria do indicador não informada na linha " + row.getRowNum()); }
                     energia.setIdCategoria(Double.valueOf(dadoColumn).longValue());
                 }
 
