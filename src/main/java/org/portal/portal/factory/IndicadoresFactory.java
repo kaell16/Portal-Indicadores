@@ -6,6 +6,7 @@ import org.portal.portal.interfaces.IndicadoresProcessor;
 import org.portal.portal.service.CarbonoService;
 import org.portal.portal.service.CopoService;
 import org.portal.portal.service.EnergiaService;
+import org.portal.portal.service.PapelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,7 @@ public class IndicadoresFactory {
             case ENERGIA:
                 return applicationContext.getBean(EnergiaService.class, IndicadoresProcessor.class);
             case PAPEL:
-                // Retornar implementação de PapelProcessor
-                break;
+                return applicationContext.getBean(PapelService.class, IndicadoresProcessor.class);
             case RESIDUO:
                 // Retornar implementação de ResiduoProcessor
                 break;

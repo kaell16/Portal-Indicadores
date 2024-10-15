@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
@@ -30,7 +31,7 @@ public class PapelModel {
 
     private String medida;
 
-    private double valor;
+    private BigDecimal valor;
 
     @Column(name = "datainicial")
     private LocalDate dataInicial;
