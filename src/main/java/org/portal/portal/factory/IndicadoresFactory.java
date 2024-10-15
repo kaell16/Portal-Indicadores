@@ -3,10 +3,7 @@ package org.portal.portal.factory;
 import jakarta.validation.constraints.NotNull;
 import org.portal.portal.enums.Indicadores;
 import org.portal.portal.interfaces.IndicadoresProcessor;
-import org.portal.portal.service.CarbonoService;
-import org.portal.portal.service.CopoService;
-import org.portal.portal.service.EnergiaService;
-import org.portal.portal.service.PapelService;
+import org.portal.portal.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -32,11 +29,9 @@ public class IndicadoresFactory {
             case PAPEL:
                 return applicationContext.getBean(PapelService.class, IndicadoresProcessor.class);
             case RESIDUO:
-                // Retornar implementação de ResiduoProcessor
-                break;
+                return applicationContext.getBean(ResiduoService.class, IndicadoresProcessor.class);
             default:
                 throw new IllegalArgumentException("Indicador inválido ou não implementado.");
         }
-        return null;
     }
 }
